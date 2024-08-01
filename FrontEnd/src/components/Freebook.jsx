@@ -11,15 +11,39 @@ function Freebook() {
   const [book, setBook] = useState([]);
   useEffect(() => {
     const getBook = async () => {
-      try {
-        const res = await axios.get("http://localhost:4001/book");
+      // try {
+      //   const res = await axios.get("http://localhost:4001/book");
 
-        const data = res.data.filter((data) => data.category === "Free");
-        console.log(data);
-        setBook(data);
-      } catch (error) {
-        console.log(error);
-      }
+      //   const data = res.data.filter((data) => data.category === "Free");
+      //   console.log(data);
+      //   setBook(data);
+      // } catch (error) {
+      //   console.log(error);
+      // }
+      //placeholder images
+      setBook([
+        {
+          image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/An_Adidas_shoe.jpg",
+          name: "Shoes",
+          category: "Footwear",
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia.",
+          price: "100",
+        },
+        {
+          image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/An_Adidas_shoe.jpg",
+          name: "Shoes",
+          category: "Footwear",
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia.",
+          price: "100",
+        },
+        {
+          image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/An_Adidas_shoe.jpg",
+          name: "Shoes",
+          category: "Footwear",
+          title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia.",
+          price: "100",
+        }
+      ]);
     };
     getBook();
   }, []);
@@ -72,8 +96,8 @@ function Freebook() {
 
         <div>
           <Slider {...settings}>
-            {book.map((item) => (
-              <Cards item={item} key={item.id} />
+            {book.map((item, index) => (
+              <Cards item={item} key={index} />
             ))}
           </Slider>
         </div>
